@@ -15,15 +15,15 @@
 //   "negative odd"    if num is negative and odd
 function classifyNumber(num) {
   if (num === 0) {
-    console.log("zero");
+    return "zero";
   } else if (num > 0 && num % 2 === 0) {
-    console.log("positive even");
+    return "positive even";
   } else if (num > 0 && num % 2 === 1) {
-    console.log("positive odd");
+    return "positive odd";
   } else if (num < 0 && num % 2 === 0) {
-    console.log("negati8ve even");
-  } else if (num < 0 && num & (2 === 1)) {
-    console.log("negative odd");
+    return "negative even";
+  } else if (num < 0 && num % 2 !== 0) {
+    return "negative odd";
   }
 }
 console.log(classifyNumber(0)); // "zero"
@@ -42,8 +42,22 @@ console.log(classifyNumber(-7)); // "negative odd"
 // If score is less than 0 or greater than 100, return "Invalid score".
 function getLetterGrade(score) {
   // TODO: your code here
+  if (90 <= score && score <= 100) {
+    return "A";
+  } else if (80 <= score && score <= 89) {
+    return "B";
+  } else if (70 <= score && score <= 79) {
+    return "C";
+  } else if (60 <= score && score <= 69) {
+    return "D";
+  } else if (0 <= score && score <= 60) {
+    return "F";
+  } else if (0 > score) {
+    return "Invalid Score";
+  } else if (100 < score) {
+    return "Invalid Score";
+  }
 }
-
 console.log(getLetterGrade(95)); // "A"
 console.log(getLetterGrade(82)); // "B"
 console.log(getLetterGrade(59)); // "F"
@@ -58,8 +72,16 @@ console.log(getLetterGrade(150)); // "Invalid score"
 //   otherwise, num converted to a string
 function fizzBuzz(num) {
   // TODO: your code here
+  if (num % 3 === 0) {
+    return "Fizz";
+  } else if (num % 5 === 0) {
+    return "Buzz";
+  } else if (num % 3 === 0 && num % 5 !== 1) {
+    return "FizzBuzz";
+  } else if (num % 3 !== 0 && num % 5 !== 0) {
+    return num;
+  }
 }
-
 console.log(fizzBuzz(3)); // "Fizz"
 console.log(fizzBuzz(5)); // "Buzz"
 console.log(fizzBuzz(15)); // "FizzBuzz"
